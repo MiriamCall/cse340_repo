@@ -29,14 +29,9 @@ app.use((req, res, next) => {
     res.locals.scripts.push(`
             <script>
                 const ws = new WebSocket("ws://localhost:${req.port + 1}");
-                sw.onclose = () +> {
+                ws.onclose = () +> {
                 setTimeout(() => location.reload(), 2000);
                 }
-                // socket.onopen = () => console.log("WebSocket connection established.");
-                // socket.onmessage = (event) => {
-                //     if (event.data === "reload") {
-                //     window.location.reload();
-                //     }
 
                 };
             </script>`);
